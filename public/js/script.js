@@ -1,12 +1,12 @@
 const socket = io();
 
-const tabId = `${Date.now()}-${Math.random()}`; // Or you can use uuid library for a more robust unique ID
+// const tabId = `${Date.now()}-${Math.random()}`; // Or you can use uuid library for a more robust unique ID
 
 if (navigator.geolocation) {
   navigator.geolocation.watchPosition(
     (position) => {
       const { latitude, longitude } = position.coords;
-      socket.emit("send-location", { id: tabId, latitude, longitude });
+      socket.emit("send-location", { /*id: tabId,*/ latitude, longitude });
     },
     (error) => {
       console.error(error);
